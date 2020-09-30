@@ -56,9 +56,9 @@ public class UserRegisteration {
 				return;
 			}	
 			
-			System.out.println("Enter 8-16 length password ");
+			System.out.println("Enter 8-16 length password having minimum 1 uppercase");
 			String password = sc.nextLine();
-		    pattern =Pattern.compile("^[a-z A-z 0-9]{8,16}$");
+		    pattern =Pattern.compile("(?=.*[A-Z])([a-zA-Z0-9]){8,16}$");
 		    matcher = pattern.matcher(password);
 			if( matcher.find()) {
 				System.out.println("Match found");
@@ -66,6 +66,6 @@ public class UserRegisteration {
 			else {
 				System.out.println("password not Valid");
 				return;
-			}	
+			}
 	}
 }
