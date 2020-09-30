@@ -16,9 +16,20 @@ public class UserRegisteration {
 			System.out.println("Match found");
 		}
 		else {
-			System.out.println("Name should start with capital and should have min 3 charcaters and having no special characters");
-			
-		
+			System.out.println("First Name should start with capital and should have min 3 charcaters and having no special characters");
+			return;
+		}
+
+			System.out.println("Enter last name having first letter capital");
+			String lname = sc.nextLine();
+			pattern =Pattern.compile("^[A-Z]{1}[a-z]{2,}$");
+		    matcher = pattern.matcher(lname);
+			if( matcher.find()) {
+				System.out.println("Match found");
+			}
+			else {
+				System.out.println("Last Name should start with capital and should have min 3 charcaters and having no special characters");
+				return;
 		}
 	}
 }
