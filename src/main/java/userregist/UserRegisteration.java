@@ -55,5 +55,17 @@ public class UserRegisteration {
 				System.out.println("Number not Valid");
 				return;
 			}	
+			
+			System.out.println("Enter 8-16 length password ");
+			String password = sc.nextLine();
+		    pattern =Pattern.compile("^[a-z A-z 0-9]{8,16}$");
+		    matcher = pattern.matcher(password);
+			if( matcher.find()) {
+				System.out.println("Match found");
+			}
+			else {
+				System.out.println("password not Valid");
+				return;
+			}	
 	}
 }
