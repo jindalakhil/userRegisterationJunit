@@ -8,7 +8,7 @@ public class UserRegisteration {
 	Pattern pattern;
 	Matcher matcher;
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws UserRegiesterationException {
 		System.out.println("Welcome to User Registeration");
 		UserRegisteration obj = new UserRegisteration();
 		
@@ -34,27 +34,25 @@ public class UserRegisteration {
 		System.out.println(obj.validatePassword(password));
 	}
 	
-	public String validateFirstName(String fname) {
+	public String validateFirstName(String fname) throws UserRegiesterationException {
 		pattern =Pattern.compile("^[A-Z]{1}[a-z]{2,}$");
 		matcher = pattern.matcher(fname);
 		if( matcher.find()) {
 			return "Happy";
 		}
 		else {
-			System.out.println("First Name should start with capital and should have min 3 charcaters and having no special characters");
-			return "Sad";
+			throw new UserRegiesterationException(UserRegiesterationException.EnumType.FIRST_NAME, "Enter valid First Name");
 		}
 	}
 	
-	public String validateLastName(String lname) {
+	public String validateLastName(String lname) throws UserRegiesterationException {
 		pattern =Pattern.compile("^[A-Z]{1}[a-z]{2,}$");
 	    matcher = pattern.matcher(lname);
 		if( matcher.find()) {
 			return "Happy";
 		}
 		else {
-			System.out.println("Last Name should start with capital and should have min 3 charcaters and having no special characters");
-			return "Sad";
+			throw new UserRegiesterationException(UserRegiesterationException.EnumType.LAST_NAME, "Enter valid Last Name");
 		}
 	}
 	
@@ -70,27 +68,25 @@ public class UserRegisteration {
 		}
 	}
 	
-	public String validatePhoneNumber(String phone) {
+	public String validatePhoneNumber(String phone) throws UserRegiesterationException {
 		pattern =Pattern.compile("^[1-9]{1}[0-9]{9}$");
 	    matcher = pattern.matcher(phone);
 		if( matcher.find()) {
 			return "Happy";
 		}
 		else {
-			System.out.println("Invalid Phone Number");
-			return "Sad";
+			throw new UserRegiesterationException(UserRegiesterationException.EnumType.PHONE_NUMBER, "Enter valid Phone Number");
 		}
 	}
 	
-	public String validatePassword(String password) {
+	public String validatePassword(String password) throws UserRegiesterationException {
 		pattern =Pattern.compile("^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[@#$%]).{8,16}$");
 	    matcher = pattern.matcher(password);
 		if( matcher.find()) {
 			return "Happy";
 		}
-		else {
-			System.out.println("Invalid Password");
-			return "Sad";
+		else { 
+			throw new UserRegiesterationException(UserRegiesterationException.EnumType.PASSWORD, "Enter valid Password ");
 		}
 	}
 	
