@@ -43,5 +43,17 @@ public class UserRegisteration {
 				System.out.println("Email not Valid");
 				return;
 			}	
+			
+			System.out.println("Enter 10 digit mobile number");
+			String phone = sc.nextLine();
+		    pattern =Pattern.compile("^[1-9]{1}[0-9]{9}$");
+		    matcher = pattern.matcher(phone);
+			if( matcher.find()) {
+				System.out.println("Match found");
+			}
+			else {
+				System.out.println("Number not Valid");
+				return;
+			}	
 	}
 }
