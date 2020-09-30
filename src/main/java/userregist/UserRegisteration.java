@@ -31,5 +31,17 @@ public class UserRegisteration {
 				System.out.println("Last Name should start with capital and should have min 3 charcaters and having no special characters");
 				return;
 		}
+		
+			System.out.println("Enter Email");
+			String email = sc.nextLine();
+		    pattern =Pattern.compile("^[a-z]+([-+-.]{0,1}[a-zA-z0-9]{1,})?@[a-z]{2,}\\.[a-z]{2,4}(\\.[a-z]{2})?$");
+		    matcher = pattern.matcher(email);
+			if( matcher.find()) {
+				System.out.println("Match found");
+			}
+			else {
+				System.out.println("Email not Valid");
+				return;
+			}	
 	}
 }
