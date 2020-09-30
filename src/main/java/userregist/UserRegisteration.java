@@ -67,5 +67,6 @@ public class UserRegisteration {
 				System.out.println("password not Valid");
 				return;
 			}
+			
 	}
 }
